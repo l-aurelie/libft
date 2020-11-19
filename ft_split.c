@@ -6,7 +6,7 @@
 /*   By: aleconte <aleconte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 15:59:43 by aleconte          #+#    #+#             */
-/*   Updated: 2020/11/17 16:07:46 by aleconte         ###   ########.fr       */
+/*   Updated: 2020/11/19 18:00:12 by aleconte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ char		**ft_split(char const *s, char c)
 	split = NULL;
 	word = 0;
 	i = 0;
-    if (!s)
-        return (NULL);
+	if (!s)
+		return (NULL);
 	while (s[i])
 	{
 		while (s[i] && (s[i] == c))
@@ -63,7 +63,5 @@ char		**ft_split(char const *s, char c)
 		return (NULL);
 	split[word] = 0;
 	split = ft_strdup_word(split, s, c);
-    if (split == NULL)
-        return (NULL);
 	return (split);
 }

@@ -6,7 +6,7 @@
 /*   By: aleconte <aleconte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 15:25:51 by aleconte          #+#    #+#             */
-/*   Updated: 2020/11/17 15:29:40 by aleconte         ###   ########.fr       */
+/*   Updated: 2020/11/19 20:08:52 by aleconte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@ static char	*size_str(long int nb, int *i)
 	return (str);
 }
 
+static void	ft_fillitoa(char *result, int i, long int nb)
+{
+	while (nb != 0)
+	{
+		result[--i] = (nb % 10) + '0';
+		nb = nb / 10;
+	}
+}
+
 char		*ft_itoa(int n)
 {
 	char		*result;
@@ -45,16 +54,12 @@ char		*ft_itoa(int n)
 		i++;
 	}
 	result = size_str(nb, &i);
-	if (result ==NULL)
-        return(NULL);
-    if (nb == 0)
+	if (result == NULL)
+		return (NULL);
+	if (nb == 0)
 		result[--i] = (nb % 10) + '0';
-	while (nb != 0)
-	{
-		result[--i] = (nb % 10) + '0';
-		nb = nb / 10;
-	}
+	ft_fillitoa(result, i, nb);
 	if (neg_sign)
-		result[--i] = '-';
+		result[0] = '-';
 	return (result);
 }
