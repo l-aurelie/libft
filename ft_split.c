@@ -47,6 +47,8 @@ char		**ft_split(char const *s, char c)
 	split = NULL;
 	word = 0;
 	i = 0;
+    if (!s)
+        return (NULL);
 	while (s[i])
 	{
 		while (s[i] && (s[i] == c))
@@ -61,5 +63,7 @@ char		**ft_split(char const *s, char c)
 		return (NULL);
 	split[word] = 0;
 	split = ft_strdup_word(split, s, c);
+    if (split == NULL)
+        return (NULL);
 	return (split);
 }

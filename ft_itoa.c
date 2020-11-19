@@ -45,7 +45,9 @@ char		*ft_itoa(int n)
 		i++;
 	}
 	result = size_str(nb, &i);
-	if (nb == 0)
+	if (result ==NULL)
+        return(NULL);
+    if (nb == 0)
 		result[--i] = (nb % 10) + '0';
 	while (nb != 0)
 	{
