@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+/* La fonction atoi() convertit le début de la chaîne pointée par str en entier de type int */
+
 int	ft_atoi(const char *str)
 {
 	int i;
@@ -21,17 +23,17 @@ int	ft_atoi(const char *str)
 	i = 0;
 	sign = 1;
 	nb = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)) //skip espaces
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	if (str[i] == '+' || str[i] == '-') //un seul signe
 	{
 		if (str[i] == '-')
-			sign = -1;
+			sign = -1; //result * -1 = negatif
 		i++;
 	}
 	while (ft_isdigit(str[i]))
 	{
-		nb = nb * 10 + (str[i] - 48);
+		nb = nb * 10 + (str[i] - 48); // *10 pour ajouter une place, + chiffre convertit (- 48)
 		i++;
 	}
 	return (nb * sign);
