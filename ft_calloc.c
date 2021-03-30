@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/* calloc() alloue la mémoire nécessaire pour un tableau de nmemb éléments de taille size octets, 
+et renvoie un pointeur vers la mémoire allouée. Cette zone est remplie avec des zéros. Si nmemb ou 
+size vaut 0, calloc() renvoie soit NULL, soit un pointeur unique qui pourra être passé ultérieurement
+à free() avec succès. */
+
 void	*ft_calloc(size_t count, size_t size)
 {
 	char	*alloc;
